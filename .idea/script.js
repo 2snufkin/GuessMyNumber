@@ -60,24 +60,24 @@ console.log(generatedNumber);
  checkBt.addEventListener("click", ()=> {
   var guess = Number(document.querySelector(".guess").value)// the user input
    if (!guess) {
-   message.textContent = 'please enter a number';
+   display('please enter a number');
    message.style.color = 'red';
 
   } else if (guess === generatedNumber) {
-   message.textContent = 'you\'ve guessed it right'
+   display("you've guessed it right")
    background.style.backgroundColor = '#2596be';
    number.style.width = '45rem';
    highScore();
 
   } else {
     if (score> 1) {
-     guess > generatedNumber ? message.textContent = "it's to high" : message.textContent = "it's to low";
+     guess > generatedNumber ? display("it's to high") : display("it's to low");
      score--;
      scoreEl.textContent = score;
 
 
     } else {
-     message.textContent = "you lost buddy";
+     display("you lost buddy");
      scoreEl.textContent = '0';
     }
   }
@@ -112,4 +112,6 @@ console.log(generatedNumber);
   }
    }
 
-
+function display(messageToDisplay){
+  message.textContent = messageToDisplay;
+}
